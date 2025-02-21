@@ -4,6 +4,11 @@
 @import "https://fonts.google.com/share?selection.family=Audiowide";
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
+button.btn-link {
+  text-decoration: none;  /* Enlève le soulignement des liens dans les boutons */
+}
+
+
 // Application de la police aux titres
 h1, h2{
   font-family: 'Audiowide', sans-serif;
@@ -14,19 +19,73 @@ h1, h2{
 .input-group {
     width: 150%;
     max-width: 900px;
-  }
+}
   
   #button-search {
     border-radius: 0;
     border-left: none;
     background-color: #8e44ad; /* Couleur Twitch */
     color: white;
-  }
+}
   
   /* Icône de recherche, si tu utilises Bootstrap Icons */
   #button-search i {
     font-size: 2rem;
-  }
+}
+
+/* Couleur spécifique pour le cœur */
+.heart-icon {
+  color: #e74c3c;  /* Rouge */
+}
+
+/* Couleur spécifique pour l'icône de recherche */
+.search-icon {
+  color: #ffffff;  /* Blanc */
+}
+
+/* Si tu veux que la couleur change lors du survol */
+.heart-icon:hover {
+  color: #c0392b;  /* Une couleur rouge plus foncée */
+}
+
+.search-icon:hover {
+  color: #f700ff;  /* Une couleur plus foncée */
+}
+
+.likes-count {
+  color: #e74c3c; /* Couleur violette */
+  font-weight: bold; /* Texte en gras */
+  font-size: 1.1rem; /* Taille de la police */
+  text-decoration: none; /* Enlever le soulignement */
+}
+
+/* Si le texte fait partie d'un lien */
+.likes-count a {
+  text-decoration: none; /* Supprimer le soulignement spécifique aux liens */
+}
+
+
+.search-btn {
+    padding: 5px 10px;
+    background-color: #6f42c1;
+    color: white;
+    border-radius: 5px;
+}
+  
+  .search-btn:hover {
+    background-color: #5a30b3;
+}
+
+
+button i, button span{
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: red; /* Couleur du cœur */
+}
+
+button:hover i {
+  color: #e74c3c; /* Changer la couleur du cœur au survol */
+}
+
   
 
 
@@ -88,6 +147,8 @@ ul {
 h1, h5.card-title {
     text-align: center;
     color: $text-color;
+    font-weight: bold;  /* Met en gras */
+    text-decoration: underline;  /* Souligne le texte */
 }
   
   h1 {
@@ -95,7 +156,7 @@ h1, h5.card-title {
 }
 
   h5.card-title {
-    font-size: 18px;
+    font-size: 21px;
     color: $text-color;
     margin-bottom: 10px;
 }
@@ -105,6 +166,12 @@ li {
   border-bottom: 1px solid #d400ff;
   padding-bottom: 15px;
 }
+
+.card-text strong {
+  font-weight: bold;  /* Met en gras */
+  font-size: 18px;
+}
+
 
 // Styles des vidéos
 video {
@@ -140,6 +207,15 @@ video {
       background-color: $accent-color;
     }
   }
+
+/* Position fixe en haut à gauche */
+.logout-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;  /* Assure-toi que le bouton reste au-dessus des autres éléments */
+}
+
 
 .btn-twitch {
   background-color: $primary-color;  // Couleur principale de Twitch

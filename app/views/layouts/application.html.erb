@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <% if user_signed_in? %>
+      <%= button_to 'Déconnexion', destroy_user_session_path, method: :delete, class: 'btn btn-danger logout-btn btn-twitch-secondary' %>
+    <% end %>
+    
     <title><%= content_for(:title) || "Twitch Clips" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,9 +35,4 @@
     </div>
   </body>
 
-  <footer>
-    <% if user_signed_in? %>
-      <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-twitch-secondary " %>
-    <% end %>
-  </footer>
 </html>

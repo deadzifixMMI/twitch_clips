@@ -8,6 +8,15 @@ Rails.application.routes.draw do
   resources :clips, only: [ :new, :create, :index, :edit, :update, :destroy ]
   get "my_clips", to: "clips#my_clips"
 
+  resources :clips do
+    post "like", on: :member
+    post "unlike", on: :member
+  end
+
+
+
+
+
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

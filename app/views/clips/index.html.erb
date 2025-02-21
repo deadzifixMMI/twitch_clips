@@ -1,4 +1,4 @@
-<h1 class="text-center mb-4">Touts les Clips :</h1>
+<h1 class="text-center mb-4">Tous les Clips :</h1>
 
 <head>
   <!-- Ajouter le lien vers Bootstrap Icons dans la balise <head> -->
@@ -11,7 +11,7 @@
     <div class="input-group">
       <%= form.text_field :search, placeholder: "Rechercher un clip...", class: "form-control", aria: { label: "Rechercher des clips" } %>
       <button class="btn btn-outline-secondary" type="submit" id="button-search">
-        <i class="bi bi-search"></i> <!-- Icône de recherche avec Bootstrap Icons -->
+        <i class="bi bi-search search-icon"></i> <!-- Icône de recherche avec Bootstrap Icons -->
       </button>
     </div>
   <% end %>
@@ -19,34 +19,50 @@
 
 <%= link_to "Mes clips", my_clips_path, class: "btn btn-primary custom-btn mb-3 custom-btn-top-right" %>
 
+<h1>Clips les plus populaires</h1>
+
 <div class="container">
   <div class="row">
-    <% if @clips.empty? %>
-      <p>Aucun clip trouvé pour votre recherche.</p>
-    <% else %>
-      <% @clips.each do |clip| %>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title"><%= clip.title %></h5>
+    <% @clips.order(likes_count: :desc).each do |clip| %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= clip.title %></h5>
 
-              <% if clip.video.attached? %>
-                <div class="video-container mb-3">
-                  <video class="img-fluid" width="100%" height="auto" controls>
-                    <source src="<%= url_for(clip.video) %>" type="video/mp4">
-                    Ton navigateur ne supporte pas la vidéo.
-                  </video>
-                </div>
+            <% if clip.video.attached? %>
+              <div class="video-container mb-3">
+                <video class="img-fluid" width="100%" height="auto" controls>
+                  <source src="<%= url_for(clip.video) %>" type="video/mp4">
+                  Ton navigateur ne supporte pas la vidéo.
+                </video>
+              </div>
+            <% else %>
+              <p>Aucune vidéo disponible.</p>
+            <% end %>
+
+            <p class="card-text">Ajouté par <strong><%= clip.user.username %></strong></p>
+
+            <!-- Affichage du nombre de likes -->
+            <div>
+              <% if current_user.liked_clips.include?(clip) %>
+                <!-- Si l'utilisateur a liké le clip, on affiche un cœur plein -->
+                <%= button_to unlike_clip_path(clip), method: :post, class: 'btn btn-link' do %>
+                  <i class="bi bi-heart-fill" style="color: red;"></i> <span class="likes-count"><%= clip.likes_count %> Likes</span>
+                <% end %>
               <% else %>
-                <p>Aucune vidéo disponible.</p>
+                <!-- Si l'utilisateur n'a pas encore liké le clip, on affiche un cœur vide -->
+                <%= button_to like_clip_path(clip), method: :post, class: 'btn btn-link' do %>
+                  <i class="bi bi-heart" style="color: gray;"></i> <span class="likes-count"><%= clip.likes_count %> Likes</span>
+                <% end %>
               <% end %>
-
-              <p class="card-text">Ajouté par <%= clip.user.username %></p>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>
+
+
+
 
