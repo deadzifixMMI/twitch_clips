@@ -7,6 +7,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= yield :head %>
 
@@ -25,4 +27,10 @@
   <body>
     <%= yield %>
   </body>
+
+  <footer>
+    <% if user_signed_in? %>
+      <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+    <% end %>
+  </footer>
 </html>

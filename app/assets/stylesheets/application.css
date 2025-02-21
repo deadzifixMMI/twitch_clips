@@ -8,3 +8,176 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+ /*= require_tree . */
+
+ /* Fond général de l'application */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #18181B;
+    color: #EFEFF1;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ajout d'un padding général pour toute l'application */
+  .container {
+    padding: 20px;
+  }
+  
+  /* Header (en-tête) */
+  header {
+    background-color: #18181B;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #9147FF;
+  }
+  
+  header h2 {
+    color: #9147FF;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Liens */
+  a {
+    color: #9147FF;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  a:hover {
+    color: #A970FF;
+  }
+  
+  /* Boutons principaux */
+  .btn {
+    background-color: #9147FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #772CE8;
+    transform: scale(1.05);
+  }
+  
+  /* Bouton de déconnexion */
+  .btn-danger {
+    background-color: #FF4561;
+  }
+  
+  .btn-danger:hover {
+    background-color: #FF1F40;
+  }
+  
+  /* Formulaires */
+  form {
+    background-color: #222222;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  input[type="text"], input[type="password"], input[type="email"], input[type="url"] {
+    background-color: #333333;
+    color: #EFEFF1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="url"]:focus {
+    outline: none;
+    background-color: #444444;
+    border: 1px solid #9147FF;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: #222222;
+    padding: 20px;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    border-right: 3px solid #9147FF;
+  }
+  
+  .sidebar a {
+    display: block;
+    padding: 10px;
+    color: #EFEFF1;
+    text-decoration: none;
+    border-bottom: 1px solid #444444;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar a:hover {
+    background-color: #9147FF;
+    color: #FFFFFF;
+  }
+  
+  /* Section principale de contenu */
+  main {
+    margin-left: 270px;
+    padding: 20px;
+  }
+  
+  /* Cartes de clip */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: #222222;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    color: #9147FF;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  iframe {
+    border-radius: 8px;
+    margin-top: 10px;
+    width: 100%;
+    height: 315px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #18181B;
+    color: #9147FF;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
