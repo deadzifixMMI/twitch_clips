@@ -1,0 +1,8 @@
+<h1>Bienvenue !</h1>
+<% if user_signed_in? %>
+  <p>Bonjour, <%= current_user.email %> !</p>
+  <%= link_to "Déconnexion", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Connexion", new_user_session_path %> |
+  <%= link_to "Inscription", new_user_registration_path %>
+<% end %>
