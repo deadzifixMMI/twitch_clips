@@ -1,22 +1,47 @@
-<h1>Clips de tout le monde</h1>
+<h1 class="text-center mb-4">Clips de tout le monde</h1>
 
-<%= link_to "Mes clips", my_clips_path, class: "btn btn-primary" %>
-
-<ul>
-  <% @clips.each do |clip| %>
-    <li>
-      <h2><%= clip.title %></h2>
-
-      <% if clip.video.attached? %>
-        <video width="560" height="315" controls>
-          <source src="<%= url_for(clip.video) %>" type="video/mp4">
-          Ton navigateur ne supporte pas la vidéo.
-        </video>
-      <% else %>
-        <p>Aucune vidéo disponible.</p>
-      <% end %>
-
-      <p>Ajouté par <%= clip.user.username %></p>
-    </li>
+<!-- Barre de recherche -->
+<div class="d-flex justify-content-center mb-4">
+  <%= form_with(url: clips_path, method: :get, local: true, class: "d-flex w-75") do |form| %>
+    <div class="input-group">
+      <%= form.text_field :search, placeholder: "Rechercher un clip...", class: "form-control", aria: { label: "Rechercher des clips" } %>
+      <button class="btn btn-outline-secondary" type="submit" id="button-search">
+        <i class="bi bi-search"></i> <!-- Icône de recherche avec Bootstrap Icons -->
+      </button>
+    </div>
   <% end %>
-</ul>
+</div>
+
+<%= link_to "Mes clips", my_clips_path, class: "btn btn-primary custom-btn mb-3 custom-btn-top-right" %>
+
+<div class="container">
+  <div class="row">
+    <% if @clips.empty? %>
+      <p>Aucun clip trouvé pour votre recherche.</p>
+    <% else %>
+      <% @clips.each do |clip| %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title"><%= clip.title %></h5>
+
+              <% if clip.video.attached? %>
+                <div class="video-container mb-3">
+                  <video class="img-fluid" width="100%" height="auto" controls>
+                    <source src="<%= url_for(clip.video) %>" type="video/mp4">
+                    Ton navigateur ne supporte pas la vidéo.
+                  </video>
+                </div>
+              <% else %>
+                <p>Aucune vidéo disponible.</p>
+              <% end %>
+
+              <p class="card-text text-muted">Ajouté par <%= clip.user.username %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

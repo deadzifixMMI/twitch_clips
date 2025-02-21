@@ -3,8 +3,14 @@ class ClipsController < ApplicationController
   before_action :set_clip, only: [ :edit, :update, :destroy ]
   before_action :authorize_user!, only: [ :edit, :update, :destroy ]
 
+
   def index
-    @clips = Clip.all
+    if params[:search].present?
+      # Utilisation de ILIKE pour une recherche insensible à la casse
+      @clips = Clip.where("title ILIKE ?", "%#{params[:search]}%")
+    else
+      @clips = Clip.all
+    end
   end
 
   def my_clips

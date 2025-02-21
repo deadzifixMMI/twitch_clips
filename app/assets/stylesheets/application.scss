@@ -1,0 +1,298 @@
+// Sassy
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "https://fonts.google.com/share?selection.family=Audiowide";
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+// Application de la police aux titres
+h1, h2{
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 600;
+}
+
+/* Pour styliser la barre de recherche */
+.input-group {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  #button-search {
+    border-radius: 0;
+    border-left: none;
+    background-color: #8e44ad; /* Couleur Twitch */
+    color: white;
+  }
+  
+  /* Icône de recherche, si tu utilises Bootstrap Icons */
+  #button-search i {
+    font-size: 1.25rem;
+  }
+  
+
+
+// Couleurs principales de Twitch
+$primary-color: #9147ff;  // Violet Twitch
+$secondary-color: #f9f9f9; // Gris clair pour les fonds
+$accent-color: #6441a5; // Violet plus sombre pour les hover et focus
+$text-color: #ffffff; // Texte en blanc
+$secondary-text-color: #b5b5b5; // Texte secondaire (gris clair)
+
+// Variables de typographie
+$font-family: 'Helvetica Neue', Arial, sans-serif;
+$font-size-base: 16px;
+
+// Appliquer la police de base
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  background-color: #121212; // Fond sombre pour un look sombre de type Twitch
+  color: $text-color; // Texte blanc par défaut
+}
+
+// Style de base pour le container
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Liens généraux
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+// Titres
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+h2{
+    font-size: 50px;
+  }
+
+// Liste de clips
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+// Titres
+h1, h5.card-title {
+    text-align: center;
+    color: $text-color;
+}
+  
+  h1 {
+    margin-bottom: 30px;
+}
+
+  h5.card-title {
+    font-size: 18px;
+    color: $text-color;
+    margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+// Styles des vidéos
+video {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.video-container video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  }
+
+// Boutons généraux
+// Boutons
+.custom-btn {
+    display: inline-block;
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    margin-bottom: 20px;
+  
+    &:hover {
+      background-color: $accent-color;
+    }
+  }
+
+.btn-twitch {
+  background-color: $primary-color;  // Couleur principale de Twitch
+  color: $text-color;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    background-color: $accent-color;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn-twitch-secondary {
+  background-color: $secondary-color;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  
+  &:hover {
+    background-color: $primary-color;
+    color: $text-color;
+  }
+}
+
+// Formulaires
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 20px 0;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: $text-color;
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+label {
+  color: $text-color;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: $primary-color;
+  color: $text-color;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+  &:hover {
+    background-color: $accent-color;
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// Alertes d'erreur pour les formulaires
+.error_notification {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+// Sections
+section {
+  padding: 40px 0;
+}
+
+// En-tête (Header)
+header {
+  background-color: #181818;
+  padding: 10px 0;
+  color: $text-color;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+// Footer
+footer {
+  background-color: #181818;
+  color: $secondary-text-color;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+// Autres éléments généraux
+
+// Cards
+.card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+  .card-body {
+    padding: 20px;
+}
+  
+  .card-text {
+    color: #aaa;
+}
+
+.card-header {
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+
+  
+
+
+
+// Positionner le bouton "Mes clips" en haut à droite
+.custom-btn-top-right {
+    position: fixed;  // Positionnement fixe par rapport à la fenêtre
+    top: 20px;        // Espacement du haut
+    right: 20px;      // Espacement de la droite
+    z-index: 999;     // Assure-toi que le bouton reste au-dessus des autres éléments
+    background-color: $primary-color;
+    color: $text-color;
+    font-size: 16px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.custom-btn-top-right:hover {
+    background-color: $accent-color;
+}
+  

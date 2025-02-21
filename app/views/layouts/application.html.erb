@@ -25,12 +25,14 @@
   </head>
 
   <body>
+    <div class=container>
     <%= yield %>
+    </div>
   </body>
 
   <footer>
     <% if user_signed_in? %>
-      <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      <%= button_to "Déconnexion", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-twitch-secondary " %>
     <% end %>
   </footer>
 </html>
