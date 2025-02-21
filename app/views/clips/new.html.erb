@@ -1,17 +1,17 @@
 <h1>Ajouter un Clip</h1>
 
-<%= form_with(model: @clip, local: true) do |f| %>
+<%= form_with(model: @clip, local: true, html: { multipart: true }) do |f| %>
   <div>
     <%= f.label :title, "Titre du Clip" %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div>
-    <%= f.label :video_url, "URL YouTube ou autre" %>
-    <%= f.text_field :video_url %>
+    <%= f.label :video, "Vidéo à uploader" %>
+    <%= f.file_field :video, class: "form-control" %>
   </div>
 
-  <%= f.submit "Ajouter", class: "btn btn-primary" %>
+  <%= f.submit "Ajouter", class: "btn btn-primary mt-2" %>
 <% end %>
 
-<%= link_to "Retour", my_clips_path, class: "btn btn-secondary" %>
+<%= link_to "Retour", my_clips_path, class: "btn btn-secondary mt-2" %>

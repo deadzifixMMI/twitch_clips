@@ -1,14 +1,14 @@
 <h1>Modifier le Clip</h1>
 
-<%= form_with(model: @clip, local: true) do |f| %>
+<%= form_with(model: @clip, local: true, html: { multipart: true }) do |f| %>
   <div>
     <%= f.label :title, "Titre du Clip" %>
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div>
-    <%= f.label :video_url, "URL YouTube ou autre" %>
-    <%= f.text_field :video_url, class: "form-control" %>
+    <%= f.label :video, "Nouvelle vidéo (laisser vide pour ne pas changer)" %>
+    <%= f.file_field :video, class: "form-control" %>
   </div>
 
   <%= f.submit "Mettre à jour", class: "btn btn-primary mt-2" %>

@@ -17,8 +17,9 @@ class ClipsController < ApplicationController
 
   def create
     @clip = current_user.clips.build(clip_params)
+
     if @clip.save
-      redirect_to my_clips_path, notice: "Clip ajouté avec succès !"
+      redirect_to clips_path, notice: "Clip ajouté avec succès !"
     else
       render :new
     end
@@ -28,8 +29,10 @@ class ClipsController < ApplicationController
   end
 
   def update
+    @clip = current_user.clips.find(params[:id])
+
     if @clip.update(clip_params)
-      redirect_to my_clips_path, notice: "Clip mis à jour !"
+      redirect_to clips_path, notice: "Clip mis à jour !"
     else
       render :edit
     end
@@ -56,6 +59,6 @@ class ClipsController < ApplicationController
   end
 
   def clip_params
-    params.require(:clip).permit(:title, :video_url)
+    params.require(:clip).permit(:title, :video)
   end
 end

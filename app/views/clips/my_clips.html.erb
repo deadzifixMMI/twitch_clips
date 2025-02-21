@@ -6,12 +6,21 @@
   <% @clips.each do |clip| %>
     <li>
       <h2><%= clip.title %></h2>
-      <iframe width="560" height="315" src="<%= clip.video_url %>" frameborder="0" allowfullscreen></iframe>
+
+      <% if clip.video.attached? %>
+        <video width="560" height="315" controls>
+          <source src="<%= url_for(clip.video) %>" type="video/mp4">
+          Ton navigateur ne supporte pas la vidéo.
+        </video>
+      <% else %>
+        <p>Aucune vidéo disponible.</p>
+      <% end %>
+
       <br>
       <%= link_to "Modifier", edit_clip_path(clip), class: "btn btn-warning" %>
-      <%= button_to "Supprimer", clip_path(clip), method: :delete, data: { confirm: "Es-tu sûr ?" }, class: "btn btn-danger" %>
+      <%= link_to "Supprimer", clip_path(clip), method: :delete, data: { confirm: "Es-tu sûr ?" }, class: "btn btn-danger" %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to "Retour -->", clips_path, class: "btn btn-secondary" %>
+<%= link_to "Retour", clips_path, class: "btn btn-secondary" %>
