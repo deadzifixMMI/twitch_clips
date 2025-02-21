@@ -1,0 +1,17 @@
+<h1>Mes Clips</h1>
+
+<%= link_to "Ajouter un clip", new_clip_path, class: "btn btn-success" %>
+
+<ul>
+  <% @clips.each do |clip| %>
+    <li>
+      <h2><%= clip.title %></h2>
+      <iframe width="560" height="315" src="<%= clip.video_url %>" frameborder="0" allowfullscreen></iframe>
+      <br>
+      <%= link_to "Modifier", edit_clip_path(clip), class: "btn btn-warning" %>
+      <%= button_to "Supprimer", clip_path(clip), method: :delete, data: { confirm: "Es-tu sûr ?" }, class: "btn btn-danger" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Retour -->", clips_path, class: "btn btn-secondary" %>

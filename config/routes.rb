@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  get "clips/index"
+  get "clips/my_clips"
+  get "clips/new"
+  get "clips/create"
   devise_for :users
-  root to: "home#index"
+  root to: "clips#index"
+  resources :clips, only: [ :new, :create, :index, :edit, :update, :destroy ]
+  get "my_clips", to: "clips#my_clips"
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

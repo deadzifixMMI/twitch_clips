@@ -1,0 +1,13 @@
+<h1>Clips de tout le monde</h1>
+
+<%= link_to "Mes clips", my_clips_path, class: "btn btn-primary" %>
+
+<ul>
+  <% @clips.each do |clip| %>
+    <li>
+      <h2><%= clip.title %></h2>
+      <iframe width="560" height="315" src="<%= clip.video_url %>" frameborder="0" allowfullscreen></iframe>
+      <p>Ajouté par <%= clip.user.email %></p>
+    </li>
+  <% end %>
+</ul>

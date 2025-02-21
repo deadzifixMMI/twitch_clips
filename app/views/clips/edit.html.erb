@@ -1,0 +1,17 @@
+<h1>Modifier le Clip</h1>
+
+<%= form_with(model: @clip, local: true) do |f| %>
+  <div>
+    <%= f.label :title, "Titre du Clip" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= f.label :video_url, "URL YouTube ou autre" %>
+    <%= f.text_field :video_url, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Mettre à jour", class: "btn btn-primary mt-2" %>
+<% end %>
+
+<%= link_to "Retour", my_clips_path, class: "btn btn-secondary mt-2" %>

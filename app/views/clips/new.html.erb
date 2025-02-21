@@ -1,0 +1,17 @@
+<h1>Ajouter un Clip</h1>
+
+<%= form_with(model: @clip, local: true) do |f| %>
+  <div>
+    <%= f.label :title, "Titre du Clip" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :video_url, "URL YouTube ou autre" %>
+    <%= f.text_field :video_url %>
+  </div>
+
+  <%= f.submit "Ajouter", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Retour", my_clips_path, class: "btn btn-secondary" %>
