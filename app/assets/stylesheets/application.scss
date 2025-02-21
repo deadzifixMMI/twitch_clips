@@ -12,8 +12,8 @@ h1, h2{
 
 /* Pour styliser la barre de recherche */
 .input-group {
-    width: 100%;
-    max-width: 600px;
+    width: 150%;
+    max-width: 900px;
   }
   
   #button-search {
@@ -25,17 +25,17 @@ h1, h2{
   
   /* Icône de recherche, si tu utilises Bootstrap Icons */
   #button-search i {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
   
 
 
 // Couleurs principales de Twitch
 $primary-color: #9147ff;  // Violet Twitch
-$secondary-color: #f9f9f9; // Gris clair pour les fonds
+$secondary-color: #cdccce; // Gris clair pour les fonds
 $accent-color: #6441a5; // Violet plus sombre pour les hover et focus
 $text-color: #ffffff; // Texte en blanc
-$secondary-text-color: #b5b5b5; // Texte secondaire (gris clair)
+$secondary-text-color: #ff13df; // Texte secondaire (gris clair)
 
 // Variables de typographie
 $font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -102,7 +102,7 @@ h1, h5.card-title {
 
 li {
   margin-bottom: 20px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #d400ff;
   padding-bottom: 15px;
 }
 
@@ -176,7 +176,7 @@ input[type="text"], input[type="email"], input[type="password"], select {
   width: 100%;
   padding: 10px;
   margin: 5px 0 20px 0;
-  border: 1px solid #444;
+  border: 1px solid #444444;
   border-radius: 5px;
   background-color: #2a2a2a;
   color: $text-color;
@@ -261,7 +261,7 @@ footer {
 }
   
   .card-text {
-    color: #aaa;
+    color: #db0fe2;
 }
 
 .card-header {

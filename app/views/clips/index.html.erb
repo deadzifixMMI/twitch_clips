@@ -1,4 +1,9 @@
-<h1 class="text-center mb-4">Clips de tout le monde</h1>
+<h1 class="text-center mb-4">Touts les Clips :</h1>
+
+<head>
+  <!-- Ajouter le lien vers Bootstrap Icons dans la balise <head> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
 
 <!-- Barre de recherche -->
 <div class="d-flex justify-content-center mb-4">
@@ -36,7 +41,7 @@
                 <p>Aucune vidéo disponible.</p>
               <% end %>
 
-              <p class="card-text text-muted">Ajouté par <%= clip.user.username %></p>
+              <p class="card-text">Ajouté par <%= clip.user.username %></p>
             </div>
           </div>
         </div>
